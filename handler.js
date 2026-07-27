@@ -11,7 +11,7 @@ const serverless = require("serverless-http");
 
 const app = express();
 
-const USERS_TABLE = process.env.USERS_TABLE;
+const TODOS_TABLE = process.env.TODOS_TABLE;
 const client = new DynamoDBClient();
 const docClient = DynamoDBDocumentClient.from(client);
 
@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.get("/users/:userId", async (req, res) => {
   const params = {
-    TableName: USERS_TABLE,
+    TableName: TODOS_TABLE,
     Key: {
       userId: req.params.userId,
     },
@@ -51,7 +51,7 @@ app.post("/users", async (req, res) => {
   }
 
   const params = {
-    TableName: USERS_TABLE,
+    TableName: TODOS_TABLE,
     Item: { userId, name },
   };
 
