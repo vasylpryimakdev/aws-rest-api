@@ -95,7 +95,6 @@ curl https://<api-id>.execute-api.<region>.amazonaws.com/todos/list
 
 - The DynamoDB table is created as part of the Serverless deployment.
 - The Lambda functions use the AWS SDK v3 and DynamoDB Document Client.
-- The repository also includes an Express-based Lambda handler in `handler.js`, but the Serverless configuration currently deploys the function handlers defined under `handler/*.js`.
 
 ## Cleanup
 
