@@ -39,11 +39,18 @@ functions:
           path: todos
           method: post
           cors: true
+  get:
+    handler: handler/getTodo.getTodo
+    events:
+      - http:
+          path: todos/${id}
+          method: get
+          cors: true
   list:
     handler: handler/listTodos.listTodos
     events:
       - http:
-          path: todos
+          path: todos/list
           method: get
           cors: true
 
