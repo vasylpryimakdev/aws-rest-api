@@ -1,4 +1,4 @@
-# aws-node-todo
+# Serverless Aws Node Todo
 
 Serverless Node.js TODO API using AWS Lambda and DynamoDB.
 
