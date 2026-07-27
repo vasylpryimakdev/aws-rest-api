@@ -1,7 +1,7 @@
 # "org" ensures this Service is used with the correct Serverless Framework Access Key.
 org: vasylpryimakawscourse
 # "service" is the name of this project. This will also be added to your AWS resource names.
-service: aws-node-todo
+service: todos-api
 
 stages:
   default:
@@ -46,7 +46,7 @@ functions:
           path: todos/{id}
           method: get
           cors: true
-  put:
+  update:
     handler: handler/updateTodo.updateTodo
     events:
       - http:
