@@ -6,7 +6,7 @@ service: aws-node-todo
 stages:
   default:
     params:
-      tableName: "users-table-${sls:stage}"
+      tableName: "todos-table-${sls:stage}"
 
 provider:
   name: aws
@@ -29,17 +29,20 @@ provider:
           Resource:
             - Fn::GetAtt: [UsersTable, Arn]
   environment:
-    USERS_TABLE: ${param:tableName}
+    TODO_TABLE: ${param:tableName}
 
 functions:
-  api:
-    handler: handler.handler
+  create:
+    handler: handler/createTodo.createTodo
     events:
-      - httpApi: "*"
+      - http:
+          path: todos
+          method: post
+          cors: true
 
 resources:
   Resources:
-    UsersTable:
+    TodoTable:
       Type: AWS::DynamoDB::Table
       Properties:
         AttributeDefinitions:
